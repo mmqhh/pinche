@@ -2,7 +2,7 @@
   <div id="login-page">
       <div id="login-wrap">
           <h1>移快拼车</h1>
-          <h2>MMYD在线拼车平台</h2>
+          <h2>简易在线拼车平台</h2>
           <div id="input-section">
               <el-input id="login-username" placeholder="用户名" v-model="userinfo.username"></el-input>
               <el-input id="login-password" type="password" placeholder="密码" v-model="userinfo.password" @keyup.native.enter="onLogin"></el-input>
@@ -135,26 +135,6 @@ export default {
         {
           value: "业务支持中心",
           label: "业务支持中心"
-        },
-        {
-          value: "茂南分公司",
-          label: "茂南分公司"
-        },
-        {
-          value: "高州分公司",
-          label: "高州分公司"
-        },
-        {
-          value: "化州分公司",
-          label: "化州分公司"
-        },
-        {
-          value: "电白分公司",
-          label: "电白分公司"
-        },
-        {
-          value: "信宜分公司",
-          label: "信宜分公司"
         },
       ],
       loading: false,
