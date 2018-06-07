@@ -5,18 +5,18 @@
     <span id="tips">&emsp;&emsp;先寻找拼车，若无合适车次，再发起拼车</span>
     <hr>
   </div>
-  <el-form ref="forms" :model="form" label-width="110px">
-  <el-form-item label="目的地">
+  <el-form ref="forms" :model="form" status-icon :rules="rules" label-width="110px">
+  <el-form-item label="目的地" prop="dest">
       <el-col :span="10">
     <el-cascader placeholder="请选择目的地" v-model="form.dest" :options="destOptions" :show-all-levels="false"></el-cascader>
     </el-col>
   </el-form-item>
-  <el-form-item label="出发时间">
+  <el-form-item label="出发时间" prop="startTime">
     <el-col :span="10">
       <el-date-picker type="datetime" format="yyyy-M-d HH:mm" placeholder="选择日期" v-model="form.startTime" style="width: 100%;"></el-date-picker>
     </el-col>
   </el-form-item>
-  <el-form-item label="结束时间">
+  <el-form-item label="结束时间" prop="endTime">
     <el-col :span="10">
       <el-date-picker type="datetime" format="yyyy-M-d HH:mm" placeholder="选择日期" v-model="form.endTime" style="width: 100%;"></el-date-picker>
     </el-col>
@@ -45,12 +45,19 @@ import { mapState } from "vuex";
 import { startNewOrder } from "./../api/pin";
 export default {
   computed: {
-    ...mapState(["username", "dept","uid"]),
+    ...mapState(["username", "dept", "uid"]),
     userinfo() {
       return `${this.dept}-${this.username}`;
     }
   },
   data() {
+    var validateEndTime = (rule, value, callback) => {
+      if (value < this.form.startTime) {
+        callback(new Error("结束时间不能早于开始时间！"));
+      } else {
+        callback();
+      }
+    };
     return {
       loading: false,
       disable: false,
@@ -59,7 +66,7 @@ export default {
         endTime: "",
         dest: [],
         hasManager: false,
-        num:1,
+        num: 1,
         valid: false
       },
       destOptions: [
@@ -115,61 +122,76 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      rules: {
+        dest: [{ required: true, message: "请选择目的地" }],
+        startTime: [{ required: true, message: "请选择开始时间" }],
+        endTime: [
+          { required: true, message: "请选择结束时间" },
+          { validator: validateEndTime, trigger: "blur" }
+        ]
+      }
     };
   },
   methods: {
     onSubmit() {
-      this.loading = true;
-      this.disable = true;
-      this.form.applicant = this.userinfo;
+      this.$refs["forms"].validate(valid => {
+        if (valid) {
+          this.loading = true;
+          this.disable = true;
+          this.form.applicant = this.userinfo;
 
-      startNewOrder(this.form , this.uid)
-        .then(res => {
-          setTimeout(() => {
-            this.disable = false;
-          }, 5000);
-          this.loading = false;
-          this.$message.success("发起拼车成功！");
-          this.form = {
-            startTime: "",
-            endTime: "",
-            dest: [],
-            hasManager: false,
-            num: 1,
-            valid: false
-          };
-        })
-        .catch(err => {
-          setTimeout(() => {
-            this.disable = false;
-          }, 5000);
-          this.loading = false;
-          this.$message.error("发起拼车失败！" + err);
-          this.form = {
-            startTime: "",
-            endTime: "",
-            dest: [],
-            hasManager: false,
-            num: 1,
-            valid: false
-          };
-        });
+          startNewOrder(this.form, this.uid)
+            .then(res => {
+              setTimeout(() => {
+                this.disable = false;
+              }, 5000);
+              this.loading = false;
+              this.$message.success("发起拼车成功！");
+              this.form = {
+                startTime: "",
+                endTime: "",
+                dest: [],
+                hasManager: false,
+                num: 1,
+                valid: false
+              };
+            })
+            .catch(err => {
+              setTimeout(() => {
+                this.disable = false;
+              }, 5000);
+              this.loading = false;
+              this.$message.error("发起拼车失败！" + err);
+              this.form = {
+                startTime: "",
+                endTime: "",
+                dest: [],
+                hasManager: false,
+                num: 1,
+                valid: false
+              };
+            });
+        } else {
+          console.log("error submit!!");
+          return false;
+        }
+      });
     }
   }
 };
 </script>
 
 <style scoped>
-#head{
+#head {
   line-height: 50px;
   text-align: left;
   font-size: 30px;
 }
-#tips{
-    font-size: 14px;
-  }
-hr{
+#tips {
+  font-size: 14px;
+}
+hr {
   margin-bottom: 20px;
 }
 </style>

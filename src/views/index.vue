@@ -11,7 +11,7 @@
         <el-container>
           <el-main>
             <keep-alive>
-              <p v-if="this.$route.path==='/'">This is the main section</p>
+              <p v-if="this.$route.path==='/'">这是主页</p>
               <router-view style="width:80%" v-else></router-view>
             </keep-alive>
           </el-main>

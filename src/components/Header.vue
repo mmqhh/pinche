@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-      <div id="logo" @click="$router.push('/')">移快拼车-简易在线拼车平台</div>
+      <div id="logo" @click="$router.push('/')">移快拼车-在线拼车平台</div>
       <div id="user-info">
           <span id="username">{{dept}}-{{username}}</span>
           <span id="logout" @click="onLogout">退出</span>

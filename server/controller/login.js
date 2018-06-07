@@ -11,7 +11,7 @@ module.exports = {
                 res.json({
                     code: '50001',
                     status: 'fail',
-                    msg: 'Wrong username or password'
+                    msg: '用户名或密码错误！'
                 })
             } else {
                 res.json({

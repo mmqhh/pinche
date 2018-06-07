@@ -4,6 +4,7 @@ import router from './router'
 import ElementUI from 'element-ui';
 import '@/assets/normalize.min.css';
 import 'element-ui/lib/theme-chalk/index.css';
+import "@/assets/font_white";
 import store from './store'
 Vue.config.productionTip = false
 Vue.use(ElementUI)

@@ -2,7 +2,7 @@
   <div id="login-page">
       <div id="login-wrap">
           <h1>移快拼车</h1>
-          <h2>简易在线拼车平台</h2>
+          <h2>在线拼车平台</h2>
           <div id="input-section">
               <el-input id="login-username" placeholder="用户名" v-model="userinfo.username"></el-input>
               <el-input id="login-password" type="password" placeholder="密码" v-model="userinfo.password" @keyup.native.enter="onLogin"></el-input>
@@ -135,7 +135,7 @@ export default {
         {
           value: "业务支持中心",
           label: "业务支持中心"
-        },
+        }
       ],
       loading: false,
       disable: false,
