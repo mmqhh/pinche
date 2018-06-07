@@ -1,6 +1,8 @@
 # pinche
 
-> A Vue.js project
+一个基于Vue.js、Express和MySQL的简易拼车平台
+
+> A simple carpool platform based on Vue.js , Express and MySQL
 
 ## Build Setup
 
