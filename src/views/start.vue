@@ -45,9 +45,9 @@ import { mapState } from "vuex";
 import { startNewOrder } from "./../api/pin";
 export default {
   computed: {
-    ...mapState(["username", "dept", "uid"]),
+    ...mapState(["username", "realname", "dept", "uid"]),
     userinfo() {
-      return `${this.dept}-${this.username}`;
+      return `${this.dept}-${this.realname}`;
     }
   },
   data() {

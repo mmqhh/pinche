@@ -20,7 +20,7 @@
                 <el-form-item label="拼车人员" label-width="120px">
                     <el-table :data="tableData" style="width: 100%">
                         <el-table-column align="center" prop="dept" label="部门"></el-table-column>
-                        <el-table-column align="center" prop="username" label="拼车人"></el-table-column>
+                        <el-table-column align="center" prop="realname" label="拼车人"></el-table-column>
                         <el-table-column align="center" prop="phone" label="手机"></el-table-column>
                     </el-table>
                 </el-form-item>

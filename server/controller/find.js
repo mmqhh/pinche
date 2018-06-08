@@ -41,7 +41,7 @@ module.exports = {
                 list2.push(i.userUid);
             }
 
-            let list3 = await User.findAll({ where: { uid: { $in: list2 } }, attributes: ['username', 'dept', 'phone'] })
+            let list3 = await User.findAll({ where: { uid: { $in: list2 } }, attributes: ['username', 'realname', 'dept', 'phone'] })
             res.json({
                 code: '20000',
                 status: 'success',
