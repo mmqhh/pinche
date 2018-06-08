@@ -1,7 +1,7 @@
 <template>
     <div>
         <div id="footer">
-            <span>Copyright © 2018 mmqhh  版权所有</span>
+            <span>Copyright © 2018 mmqhh 版权所有</span>
             <br>
             <span id="tel">联系电话: </span>
             <span id="email">电子邮箱: </span>
@@ -24,13 +24,6 @@
                 <img src="@/assets/myQRcode.jpg" width="224px" height="298px">
               </el-dialog>
     </div>
-
-    <!-- <div id="footer">
-      <span>Copyright © 2018 mmqhh 版权所有</span>
-      <br>
-      <span id="tel">联系电话: </span>
-      <span id="email">电子邮箱: @</span>
-  </div> -->
 </template>
 
 <script>

@@ -2,7 +2,7 @@
   <div id="header">
       <div id="logo" @click="$router.push('/')">移快拼车-在线拼车平台</div>
       <div id="user-info">
-          <span id="username">{{dept}}-{{username}}</span>
+          <span id="username">{{dept}}-{{realname}}</span>
           <span id="logout" @click="onLogout">退出</span>
       </div>
   </div>
@@ -39,7 +39,7 @@ export default {
   },
   computed: {
     //从Vuex获取的数据
-    ...mapState(["username", "dept"])
+    ...mapState(["username", "dept", "realname"])
   }
 };
 </script>

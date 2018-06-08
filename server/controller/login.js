@@ -37,6 +37,7 @@ module.exports = {
                 code: '20000',
                 status: 'success',
                 username: result.username,
+                realname: result.realname,
                 dept: result.dept,
             })
         })

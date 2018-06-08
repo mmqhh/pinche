@@ -19,6 +19,9 @@
             <el-form-item label="用户名" label-width="120px" prop="username">
               <el-input v-model.trim="signUpform.username"></el-input>
             </el-form-item>
+            <el-form-item label="真实名字" label-width="120px" prop="realname">
+              <el-input v-model.trim="signUpform.realname"></el-input>
+            </el-form-item>
             <el-form-item label="密码" label-width="120px" prop="password">
               <el-input type="password" v-model.trim="signUpform.password"></el-input>
             </el-form-item>
@@ -74,6 +77,7 @@ export default {
       },
       signUpform: {
         username: "",
+        realname:"",
         password: "",
         check_password:"",
         dept: "",
@@ -143,6 +147,9 @@ export default {
       
       rules:{
         username:[
+          { required: true , message: '请输入用户名'}
+        ],
+        realname:[
           // { required: true, message: '请输入真实名字', trigger: 'blur' },
           {type: "string", required: true, pattern: /^[\u4e00-\u9fa5]+$/ , message: '请输入真实名字'},
           { min: 2, max: 3, message: '长度在 2 到 3 个字符', trigger: 'blur' }

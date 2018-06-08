@@ -10,6 +10,7 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         username: '',
+        realname: '',
         dept: '',
         token: '',
         uid:''
@@ -17,6 +18,9 @@ const store = new Vuex.Store({
     mutations: {
         set_username: (state, username) => {
             state.username = username;
+        },
+        set_realname: (state, realname) => {
+            state.realname = realname;
         },
         set_dept: (state, dept) => {
             state.dept = dept;
@@ -52,6 +56,7 @@ const store = new Vuex.Store({
                 getInfo(state.token , get_uid()).then(res => {
                     commit('set_dept', res.data.dept);
                     commit('set_username', res.data.username);
+                    commit('set_realname', res.data.realname);
                     commit('set_uid', get_uid());
                     resolve(res);
                 }).catch(err => {

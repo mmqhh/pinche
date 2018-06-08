@@ -148,14 +148,10 @@ export default {
               }, 5000);
               this.loading = false;
               this.$message.success("发起拼车成功！");
-              this.form = {
-                startTime: "",
-                endTime: "",
-                dest: [],
-                hasManager: false,
-                num: 1,
-                valid: false
-              };
+              this.$refs["forms"].resetFields();
+              setTimeout(() => {
+                this.$router.push('/find')
+              }, 1500);
             })
             .catch(err => {
               setTimeout(() => {
