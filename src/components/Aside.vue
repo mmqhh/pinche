@@ -1,5 +1,5 @@
 <template>
-  <el-menu :default-active="$route.path" mode="vertical">
+  <el-menu id="aside-menu" :default-active="$route.path" mode="vertical">
     <router-link to="/start">
       <el-menu-item index="1-1">
         <i class="el-icon-circle-plus-outline"></i>
@@ -13,14 +13,18 @@
       </el-menu-item>
       <!-- @click="$router.push('/find')" -->
     </router-link>
-    <el-menu-item index="1-3">
+    <router-link to="/record">
+      <el-menu-item index="1-3">
       <i class="el-icon-tickets"></i>
       拼车记录
     </el-menu-item>
+    </router-link>
+    <router-link to="/user-management">
     <el-menu-item index="1-4">
       <i class="el-icon-info"></i>
       用户管理
     </el-menu-item>
+    </router-link>
   </el-menu>
 </template>
 
@@ -40,9 +44,9 @@
 </script>
 
 <style scoped>
-  * {
+  #aside-menu {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 20px;
     vertical-align: middle;
   }
 </style>

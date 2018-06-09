@@ -4,9 +4,11 @@ const { login_validate, getInfo_validate } = require('./../controller/login');
 const { startNewOrder } = require('./../controller/start')
 const { signUp } = require('./../controller/signup')
 const { getOrderList, getPeopleList, join, quit } = require('./../controller/find')
+const { getMyOrderList } = require('./../controller/record')
+const { getUserList } = require('./../controller/user-manage')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
@@ -19,6 +21,10 @@ router.post('/start', startNewOrder)    //发起拼车
 router.post('/signup', signUp)        //用户注册
 
 router.post('/list', getOrderList)  //获取拼车订单列表
+
+router.post('/mylist', getMyOrderList)  //获取我的拼车订单列表
+
+router.post('/userlist', getUserList)  //获取我的拼车订单列表
 
 router.post('/people', getPeopleList)  //获取一个拼车订单内的人员
 

@@ -125,7 +125,7 @@ export default {
       ],
       rules: {
         dest: [{ required: true, message: "请选择目的地" }],
-        startTime: [{ required: true, message: "请选择开始时间" }],
+        startTime: [{ required: true, message: "请选择出发时间" }],
         endTime: [
           { required: true, message: "请选择结束时间" },
           { validator: validateEndTime, trigger: "blur" }
@@ -159,14 +159,7 @@ export default {
               }, 5000);
               this.loading = false;
               this.$message.error("发起拼车失败！" + err);
-              this.form = {
-                startTime: "",
-                endTime: "",
-                dest: [],
-                hasManager: false,
-                num: 1,
-                valid: false
-              };
+              this.$refs["forms"].resetFields();
             });
         } else {
           console.log("error submit!!");

@@ -4,6 +4,9 @@ import Index from '@/views/index'
 import Start from '@/views/start'
 import Find from '@/views/find'
 import Login from '@/views/login'
+import Record from '@/views/record'
+import UserManagement from '@/views/user-manage'
+import NotFound from '@/views/404'
 
 Vue.use(Router)
 
@@ -28,8 +31,23 @@ export default new Router({
           path: '/find',
           name: 'Find',
           component: Find
+        },
+        {
+          path: '/record',
+          name: 'Record',
+          component: Record
+        },
+        {
+          path: '/user-management',
+          name: 'User-Management',
+          component: UserManagement
         }
       ]
+    },
+    {
+      path: '*',
+      name: '404',
+      component: NotFound
     }
   ],
   mode: 'history',

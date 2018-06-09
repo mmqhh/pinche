@@ -16,6 +16,22 @@ export function getOrders(page) {
     })
 }
 
+export function getMyOrders(page, uid) {
+    return request({
+        url: 'api/mylist',
+        method: 'post',
+        data: { page, uid }
+    })
+}
+
+export function getUsers(page, uid) {
+    return request({
+        url: 'api/userlist',
+        method: 'post',
+        data: { page }
+    })
+}
+
 export function getPeople(oid) {
     return request({
         url: 'api/people',

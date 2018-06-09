@@ -14,7 +14,8 @@ module.exports = {
             res.json({
                 code: '40003',
                 status: 'fail',
-                msg: error.message
+                // msg: error.message
+                msg: error.errors[0].message
             })
         }
     }
